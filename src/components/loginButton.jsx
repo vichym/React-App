@@ -11,7 +11,7 @@ class LoginButton extends Component {
 
     render() {
         let buttonText = this.state.login ? "Log out" : "Log in";
-        let buttonStyle = this.state.login ? "btn-md m-1 btn-success" : "btn-md m-1 btn-warning";
+        let buttonStyle = this.state.login ? "btn-lg btn-success m-3 w-100" : "btn-lg btn-danger m-3 w-100";
         return (
             <button className={buttonStyle}
                     onClick={this.handleClick}>

@@ -1,28 +1,35 @@
 import React from "react";
+import LoginButton from "./loginButton";
+import ProductDirectory from "./productDirectory";
+import Cart from "./cart"
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     return (
         <React.Fragment>
-            <nav className="navbar navbar-dark bg-dark shadow-sm">
-                <div className="container w-auto d-flex justify-content-between">
-                    <a href="#" className="navbar-brand d-flex align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                             aria-hidden="true" className="mr-2" viewBox="0 0 24 24" focusable="false">
-                            <path
-                                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                            <circle cx="12" cy="13" r="4"></circle>
-                        </svg>
-                        <strong>Album</strong>
-                    </a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
+
+            <div className="container">
+                <div className="row align-content-center">
+                    <h1> Welcome to our App</h1>
                 </div>
-            </nav>
+                <div className="row">
+                    <div className="col-sm">
+                        <button className="btn-lg btn-info m-3 w-100" name="Directory"
+                                onClick={() => props.onClick(<ProductDirectory/>)}>Directory
+                        </button>
+                    </div>
+                    <div className="col-sm">
+                        <button className="btn-lg btn-light m-3 w-100" name="Cart"
+                                onClick={() => props.onClick(<Cart/>)}>Cart
+                        </button>
+                    </div>
+                    <div className="col-sm">
+                        <LoginButton/>
+                    </div>
+                </div>
+            </div>
+
+
         </React.Fragment>
     )
 };
