@@ -1,33 +1,40 @@
 import React from 'react';
-// import Cart from './components/cart'
-
-import ProductDirectory from "./components/productDirectory";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import "./App.css"
-import Navbar from "./components/navbar";
+import Navbar from "./components/navbar"
+import Directory from "./components/Directory/productDirectory"
+import Cart from "./components/Cart/cart";
 
 class App extends React.Component {
-    state = {
-        currentPage: <ProductDirectory/>
-    };
-
-    handleClick = (props) => {
-        this.setState({currentPage: props})
-    };
-
 
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <Navbar onClick={this.handleClick}/>
-                </header>
-                <hr/>
-                <main id="counter-list">
-                    {this.state.currentPage}
-                </main>
+                <Router>
+                    <header className="App-header">
+                        <Navbar/>
+                    </header>
+                    <hr/>
+                    <main id="counter-list">
+
+                        <Switch>
+                            <Route path="/" exact component={Home}/>
+                            <Route path="/directory" component={Directory}/>
+                            <Route path="/cart" component={Cart}/>
+                        </Switch>
+
+                    </main>
+                </Router>
             </div>
         );
     }
-
 }
+
+const Home = () => {
+    return (
+        <div>
+            <h1 className="card-title">Home Page</h1>
+        </div>
+    )
+};
 export default App;
